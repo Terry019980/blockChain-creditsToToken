@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inquire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--Custom Theme files-->
+    <link href="stylesheets/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="stylesheets/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="stylesheets/css/flexslider.css" type="text/css" media="screen" />
+    <link rel='stylesheet' type='text/css' href='stylesheets/css/jquery.easy-gallery.css' />
+    <!--//Custom Theme files-->
+    <!--js-->
+    <script src="javascripts/jquery-2.2.3.min.js"></script>
+    <script src="javascripts/SmoothScroll.min.js"></script>
+    <!--//js-->
+    <!--web-fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Text+Me+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!--//web-fonts-->
+    <!--start-smooth-scrolling-->
+    <script type="text/javascript" src="javascripts/move-top.js"></script>
+    <script type="text/javascript" src="javascripts/easing.js"></script>
+    <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="jquery.qrcode.min.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div  class="banner">
+
+    <div class="container">
+        <div class="menu-wrap">
+            <nav class="menu">
+                <div class="logo">
+                    <h1><a href="index">Mr.Lazy</a></h1>
+                </div>
+                <div class="icon-list">
+                    <ul>
+                        <li><a href="index" class="active"><i class="glyphicon glyphicon-home" aria-hidden="true"></i> 返回主页</a></li>
+                        <li><a href="conversion" class="active"><i class="glyphicon glyphicon-wrench" aria-hidden="true"></i> 积分兑换</a></li>
+                        <li><a href="transfer" class="active"><i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i> Token转账</a></li>
+                        <li><a href="consume" class="active"><i class="glyphicon glyphicon-cog" aria-hidden="true"></i> Token消费</a></li>
+                        <li><a href="inquire" class="active"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i> 信息查询</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+            <button class="close-button" id="close-button">Close Menu</button>
+        </div>
+        <button class="menu-button" id="open-button">Open Menu</button>
+
+    </div>
+</div>
+
+<div>
+    <div class="col-md-6 about-grid" >
+        <a href="test321">
+        <input name="pay" type="button" class="form-control" value="点击获取支付码" id="pay"  style="background-color: #8782EC; width:400px;height:80px;margin-top: 400px;margin-left: 600px;font-size: xx-large"/>
+        </a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="footer-wthree-nav">
+            <ul style="width: 1200px; height: 0px;">
+                <li><a href="index" class="scroll">Home</a></li>
+                <li><a href="conversion" class="scroll">积分兑换</a></li>
+                <li><a href="transfer" class="scroll">Token转账</a></li>
+                <li><a href="consume" class="scroll">Token消费</a></li>
+                <li><a href="inquire" class="scroll">信息查询</a></li>
+
+            </ul>
+        </div>
+        <!--<div class="footer-left">-->
+
+        <div class="footer-right social-icons">
+            <ul>
+                <li><a href="#"> </a></li>
+                <li><a href="#" class="pin"> </a></li>
+                <li><a href="#" class="in"> </a></li>
+                <li><a href="#" class="be"> </a></li>
+                <li><a href="#" class="vimeo"> </a></li>
+            </ul>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- //footer -->
+<!--smooth-scrolling-of-move-up-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!--//smooth-scrolling-of-move-up-->
+<!-- menu-js -->
+<script src="javascripts/classie.js"></script>
+<script src="javascripts/main.js"></script>
+<!-- //menu-js -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="javascripts/bootstrap.js"></script>
+</body>
+</html>

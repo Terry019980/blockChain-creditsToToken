@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Login</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
+	<link rel="stylesheet" href="stylesheets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="stylesheets/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="stylesheets/css/demo.css" />
+	<link rel="stylesheet" href="stylesheets/css/templatemo-style.css">
+
+	<script type="text/javascript" src="javascripts/modernizr.custom.86080.js"></script>
+	<script type="text/javascript" src="javascripts/function.js"></script>
+	<style type="text/css">
+		#code {
+			font-family: Arial;
+			font-style: italic;
+			font-weight: bold;
+			border: 0;
+			letter-spacing: 2px;
+			color: darkblue;
+		}
+	</style>
+
+	<script>
+        //产生验证码
+        window.onload = function() {
+            createCode()
+        }
+        var code; //在全局定义验证码
+        function createCode() {
+            code = "";
+            var codeLength = 4; //验证码的长度
+            var checkCode = document.getElementById("code");
+            var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+                'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //随机数
+            for(var i = 0; i < codeLength; i++) { //循环操作
+                var index = Math.floor(Math.random() * 36); //取得随机数的索引（0~35）
+                code += random[index]; //根据索引取得随机数加到code上
+            }
+            checkCode.value = code; //把code值赋给验证码
+        }
+	</script>
+	<script>
+        //验证码验证
+        function validate() {
+            var inputCode = document.getElementById("verification").value.toUpperCase(); //获取输入框内验证码并转化为大写
+            if (inputCode.length <= 0) { //若输入的验证码长度为0
+                alert("请输入验证码！"); //则弹出请输入验证码
+
+            }
+            else if (inputCode != code) { //若输入的验证码与产生的验证码不一致时
+                alert("验证码输入错误!"); //则弹出验证码输入错误
+                createCode(); //刷新验证码
+                document.getElementById("verification").value = "";//清空文本框
+            } else { //输入正确时
+                alert("正在登陆"); //弹出
+            }
+        }
+	</script>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<ul class="cb-slideshow">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+
+<div class="container-fluid">
+	<div class="row cb-slideshow-text-container ">
+		<div class= "tm-content col-xl-6 col-sm-8 col-xs-8 ml-auto section">
+			<header class="mb-5"><h1>Login</h1></header>
+			<!--<P class="mb-5">Please enter your username and password to enter your wallet. Thank you for visiting our site!</P>-->
+
+			<form action="/login" method="post" class="subscribe-form">
+				<div class="row form-section">
+
+					<div class="col-md-7 col-sm-7 col-xs-7">
+						<input name="username" type="text" class="form-control" id="user_name" placeholder="Your Name..." required/>
+					</div>
+					<br>
+					<br>
+					<div class="col-md-7 col-sm-7 col-xs-7">
+						<input name="password" type="password" class="form-control" id="password" placeholder="Your Password..." required/>
+					</div>
+
+					<div class="col-md-5 col-sm-5 col-xs-5">
+					</div>
+					<br>
+					<br>
+					<div class="col-md-5 col-sm-5 col-xs-5">
+						<input name="verification" type="text" class="form-control" id="verification" placeholder="Enter verification..." required/>
+					</div>
+					<!--verification-->
+					<div class="col-md-5 col-sm-5 col-xs-5" style="margin-left:2px;margin-top:8px" >
+						<!--时间：2018-08-30 描述：把验证码定义为按钮，点击刷新-->
+						<input type="button" id="code" onclick="createCode()" />
+						<!--<input type="button" value="验证" onclick="validate()" />-->
+					</div>
+
+					<br>
+					<br>
+					<div class="col-md-5 col-sm-5 col-xs-5" >
+
+							<input type="submit" class="tm-btn-subscribe" id="login" value="Login" onclick="validate()"/>
+						<!--onclick="location.href='index'"-->
+					</div>
+
+						<!--</div>
+                        <div class="col-md-5 col-sm-5 col-xs-5"> -->
+					<div>
+						<label style="padding-left:-50px;">
+							<input type="submit" class="tm-btn-subscribe" id="register" onclick="location.href='register'" value="Register"/>
+						</label>
+
+					</div>
+
+				</div>
+			</form>
+
+			<div class="tm-social-icons-container text-xs-center"style="margin-left:12px;margin-top:12px">
+				<a href="#" class="tm-social-link"><i class="fa fa-wechat"></i></a>
+				<a href="#" class="tm-social-link"><i class="fa fa-qq"></i></a>
+				<a href="#" class="tm-social-link"><i class="fa fa-weibo"></i></a>
+			</div>
+
+		</div>
+	</div>
+	<div class="footer-link">
+		<p>Copyright © 2018 SEU
+
+			<!--  - Design: <a rel="nofollow" href="#" target="_parent"></a></p> -->
+		<p>More Information <a href="http://www.baidu.com/" target="_blank" title="区块链小组">区块链小组</a> - Collect from <a href="http://www.baidu.com/" title="网页钱包" target="_blank">网页钱包</a></p>
+	</div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="javascripts/particles.js"></script>
+<script type="text/javascript" src="javascripts/app.js"></script>
+</html>

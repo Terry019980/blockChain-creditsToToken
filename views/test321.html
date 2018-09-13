@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+    <title>Javascript 二维码生成库：QRCode</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://static.runoob.com/assets/qrcode/qrcode.min.js"></script>
+</head>
+<body background = "images/letter_bg_03.jpg">
+<div id="qrcode" style="margin-left: 650px; width: 100px;height: 100px; margin-top: 100px"></div>
+<script type="text/javascript">
+    function getQRCode(){
+        var rnd="";
+        for(var i=0;i<7;i++){
+            rnd+=Math.floor(Math.random()*10);
+        }
+        var qrCode = new QRCode(document.getElementById('qrcode'), rnd);
+        window.setInterval(function(){var rnd="";
+            for(var i=0;i<7;i++){
+                rnd+=Math.floor(Math.random()*10);
+            };qrCode.makeCode(rnd); /*qrCode = new QRCode(document.getElementById('qrcode'), rnd);*/},300000);
+
+    }
+
+</script>
+
+<input id="pay" type="button" onclick="getQRCode();limiter()"
+       class="form-control" value="点击获取支付码" id="pay" style="background-color: #8782EC; -moz-border-radius: 10%; width:400px;height:80px;margin-top: 190px;margin-left: 600px;font-size: xx-large"/>
+<script type="text/javascript">
+    function limiter() {
+        document.getElementById("pay").disabled = true;
+
+    }
+</script>
+<!--<div id="qrcode" style="margin-left: 650px; width: 100px;height: 100px;"></div>-->
+
+<a href="index">
+<button style="width: 10%; height: 20%;margin-left: 1200px;margin-top: 200px;">返回主页</button>
+</a>
+</body>
+</html>

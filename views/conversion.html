@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>积分兑换</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--Custom Theme files-->
+    <link href="stylesheets/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="stylesheets/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="stylesheets/css/flexslider.css" type="text/css" media="screen" />
+    <link rel='stylesheet' type='text/css' href='stylesheets/css/jquery.easy-gallery.css' />
+    <!--//Custom Theme files-->
+    <!--js-->
+    <script src="javascripts/jquery-2.2.3.min.js"></script>
+    <script src="javascripts/SmoothScroll.min.js"></script>
+
+    <!--//js-->
+    <!--web-fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Text+Me+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!--//web-fonts-->
+    <!--start-smooth-scrolling-->
+    <script type="text/javascript" src="javascripts/move-top.js"></script>
+    <script type="text/javascript" src="javascripts/easing.js"></script>
+    <script type="text/javascript"></script>
+
+    <!--//end-smooth-scrolling-->
+    <!--折线图-->
+    <meta charset="utf-8">
+    <!--<link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* css 代码  */
+    </style>
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+</head>
+<body>
+
+<div  class="banner">
+
+    <div class="container">
+        <div class="menu-wrap">
+            <nav class="menu">
+                <div class="logo">
+                    <h1><a href="/index">Mr.Lazy</a></h1>
+                </div>
+                <div class="icon-list">
+                    <ul>
+                        <li><a href="index" class="active"><i class="glyphicon glyphicon-home" aria-hidden="true"></i> Home</a></li>
+                        <li><a href="conversion" class="active"><i class="glyphicon glyphicon-wrench" aria-hidden="true"></i> 积分兑换</a></li>
+                        <li><a href="transfer" class="active"><i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i> Token转账</a></li>
+                        <li><a href="consume" class="active"><i class="glyphicon glyphicon-cog" aria-hidden="true"></i> Token消费</a></li>
+                        <li><a href="inquire" class="active"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i> 信息查询</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+            <button class="close-button" id="close-button">Close Menu</button>
+        </div>
+        <button class="menu-button" id="open-button">Open Menu</button>
+
+    </div>
+</div>
+
+<!--折线图-->
+<div id="container-graph" style="min-width:400px;height:400px " ></div>
+<script>
+    var chart = new Highcharts.Chart('container', {
+        title: {
+            text: 'Token对人民币的汇率',
+            x: -20
+        },
+
+        subtitle: {
+            text: '数据来源: 区块链小组',
+            x: -20
+        },
+        chart: {
+            renderTo: container,
+            plotBackgroundImage: 'images/g1.jpg', //设置图表的背景图片
+            // spacingTop: 20,
+            // spacingRight: 400,
+            // spacingBottom: 3,
+            // spacingLeft: 50,
+
+            //width:1200,
+
+            marginLeft:0,
+            marginRight:0,
+            marginTop:0,
+            marginBottom:0
+        },
+
+        xAxis: {
+            categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+        },
+        yAxis: {
+            title: {
+                text: 'Token/RMB'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            //valueSuffix: '°C'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: []
+    });
+    chart.xAxis[0].categories = ['1月', '2月', '3月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+
+    var series = chart.addSeries({
+        name: '1月',
+        data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5],
+
+    }, true);
+
+    /*var series = chart.addSeries({
+        name: '2月',
+        data: [-0.3, 0.89, 6.7, 21.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 9.6, 12.5]
+    }, true);*/
+</script>
+
+<script>
+    function calculateToken(){
+        var rate=1000;//应该定义为全局变量
+        var result=document.getElementById('current-integral').value;
+        document.getElementById('token').innerHTML=result/rate;//rate 是积分兑换token的汇率
+    }
+</script>
+<!-- about -->
+<div id="about" class="contact">
+    <div class="container">
+
+        <div class="contact-grids">
+            <div class="col-md-7 contact-form">
+                <form action="/conversion" method="post" style="text-decoration-color: #FFFFFF; padding-left: 500px">
+                    <table>
+                        <tr>
+                            <td><input value="您的当前积分为：" readonly type="text" ></td>
+                            <td><input type="text"readonly name="num" id="current-integral" value="<%=integral%>"></td>
+                        </tr>
+                        <tr>
+                            <td><input value="请输入兑换积分数" type="text" required=""></td>
+                            <td><input type="text" name="INum" placeholder="INumber" id="integral-to-converse" required="" onchange="calculateToken()"></td>
+                        </tr>
+                        <tr>
+                            <td><input value="Token 数" type="text" readonly ></td>
+                            <td> <input type="text" name="TNum" placeholder="TokenNumber" id="token" value="0"></td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="确认兑换">
+                </form>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!--//smooth-scrolling-of-move-up-->
+<!-- menu-js -->
+<script src="javascripts/classie.js"></script>
+<script src="javascripts/main.js"></script>
+<!-- //menu-js -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="javascripts/bootstrap.js"></script>
+
+<!-- //portfolio -->
+</body>
+</html>

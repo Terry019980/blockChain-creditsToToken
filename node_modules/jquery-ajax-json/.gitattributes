@@ -1,0 +1,24 @@
+* text eol=lf
+*.sql text
+
+*.ico binary
+*.ttf binary
+*.eof binary
+*.woff binary
+*.zip binary
+*.mov binary
+*.flv binary
+*.png binary
+*.jpg binary
+*.gif binary
+
+*.ps -diff
+dist/*.js -diff
+*.min.js -diff
+/src/main/webapp/js/vh.* -diff
+/src/main/webapp/js/prod/**/*.js -diff
+/src/main/webapp/css/app* -diff
+/src/main/webapp/css/vh-login* -diff
+
+*.min.js merge=ours
+*.js.map merge=ours

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--Custom Theme files-->
+<link href="stylesheets/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="stylesheets/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="stylesheets/css/flexslider.css" type="text/css" media="screen" />
+<link rel='stylesheet' type='text/css' href='stylesheets/css/jquery.easy-gallery.css' />
+<!--//Custom Theme files-->
+<!--js-->
+<script src="javascripts/jquery-2.2.3.min.js"></script>
+<script src="javascripts/SmoothScroll.min.js"></script>
+<!--//js-->
+<!--web-fonts-->
+<link href='http://fonts.googleapis.com/css?family=Text+Me+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!--//web-fonts-->
+<!--start-smooth-scrolling-->
+<script type="text/javascript" src="javascripts/move-top.js"></script>
+<script type="text/javascript" src="javascripts/easing.js"></script>
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+</script>
+<script type="text/javascript">
+	function getRTime() {
+	    //这里的时间换成兑换截止时间
+	    var EndTime1 = new Date('2018/10/10 17:00:00');
+	    //这里的时间换成我们的季度清零时间
+	    var EndTime2 = new Date('2018/10/30');
+	    var NowTime = new Date();
+		var t = EndTime1.getTime() - NowTime.getTime();
+		var t2 =  EndTime2.getTime() - NowTime.getTime();
+		var d = Math.floor(t/1000/60/60/24);
+		var d2 = Math.floor(t2/1000/60/60/24);
+		var h = Math.floor(t/1000/60/60%24);
+        var m=Math.floor(t/1000/60%60);
+		var s = Math.floor(t/1000%60);
+
+		document.getElementById("TDTime").innerHTML = d + "天" + h + "时" + m + "分"+ s +"秒";
+		document.getElementById("MDTime").innerHTML = d2 + "天";
+    }
+    setInterval(getRTime,1000);
+</script>
+<!--//end-smooth-scrolling-->	
+</head>
+<body>
+	<!--banner-->
+	<div id="home" class="banner">
+		<!--header-->
+		<div class="header">
+			<div class="container">	
+				<div class="menu-wrap">
+					<nav class="menu">
+						<div class="logo">
+							<h1><a href="index">Mr.Lazy</a></h1>
+						</div>
+						<div class="icon-list">
+							<ul>
+								<li><a href="index" class="active"><i class="glyphicon glyphicon-home" aria-hidden="true"></i> 返回主页</a></li>
+								<li><a href="conversion" class="active"><i class="glyphicon glyphicon-wrench" aria-hidden="true"></i> 积分兑换</a></li>
+								<li><a href="transfer" class="active"><i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i> Token转账</a></li>
+								<li><a href="consume" class="active"><i class="glyphicon glyphicon-cog" aria-hidden="true"></i> Token消费</a></li>
+								<li><a href="inquire" class="active"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i> 信息查询</a></li>
+							</ul>
+						</div>
+					</nav>
+					<button class="close-button" id="close-button">Close Menu</button>
+				</div>
+				<button class="menu-button" id="open-button">Open Menu</button>
+				<div class="nav navbar-nav w3ls-logo">
+					<h2><a href="index.html" style="width:auto;padding-right: 200%">Mr.Lazy</a></h2>
+				</div>
+				<div class="nav navbar-nav navbar-right w3ls-header-right">
+					<ul>
+						<li id="UName"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="login"onload="getAccountName()">登陆/注册</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!--//header-->
+		<!--banner-text-->
+		<div class="banner-text">
+			<div class="container">
+				<div class="w3ls-title">
+					<section class="slider">
+						<div class="flexslider">
+							<ul class="slides">
+								<li>
+									<h3>排行榜
+									<div id="1-20">
+										<table id="ranking" border="1" >
+										<tr>
+											<td >用户名</td>
+											<td>时间</td>
+											<td>积分</td>
+											<td>兑换量</td>
+										</tr>
+									</table>
+									</div>
+									</h3>
+								</li>
+								<li>
+									<h3>公告栏</h3>
+								</li>
+								<li>
+									<h3>广告栏</h3>
+								</li>
+							</ul>
+						</div>
+					</section>
+					<!-- FlexSlider -->
+					<script defer src="javascripts/jquery.flexslider.js"></script>
+					<script type="text/javascript">
+					$(window).load(function() {
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						controlsContainer: $(".custom-controls-container"),
+						customDirectionNav: $(".custom-navigation a")
+					  });
+					});
+					</script>
+					<!-- //FlexSlider -->
+				</div>
+				<div class="w3ls-bottom-text" >
+					<ul >
+						<li>
+							<h3 id="TokenRate" onload="getTokenRate()">215.2
+								<!--<div id="Token汇率" class="getTokenRate"></div>-->
+							</h3>
+							<p >Token汇率 </p>
+						</li>
+						<li>
+							<h3 id="GRate" onload="getGRate()"> 40</h3>
+							<p >积分汇率</p>
+						</li>
+						<li>
+							<h3 id="TDTime">
+								<!--25h12m6s-->
+							</h3>
+							<p>兑换截至倒计时</p>
+						</li>
+						<li>
+							<h3 id="MDTime"></h3>
+							<p>季度清零倒计时</p>
+						</li>
+						<li>
+							<h3>敬请期待</h3>
+							<p>New Products </p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		 //banner-text
+	</div>
+
+
+	<div class="footer">
+		<div class="container">
+			<div class="footer-wthree-nav">
+				<ul>
+					<li><a href="index" class="scroll">Home</a></li>
+					<li><a href="conversion" class="scroll">积分兑换</a></li>
+					<li><a href="transfer" class="scroll">Token转账</a></li>
+					<li><a href="consume" class="scroll">Token消费</a></li>
+					<li><a href="inquire" class="scroll">信息查询</a></li>
+
+				</ul>	
+			</div>
+			<div class="footer-left">
+			</div>
+			<div class="footer-right social-icons">
+				<ul>
+					<li><a href="#"> </a></li>
+					<li><a href="#" class="pin"> </a></li>
+					<li><a href="#" class="in"> </a></li>
+					<li><a href="#" class="be"> </a></li>
+					<li><a href="#" class="vimeo"> </a></li>
+				</ul>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //footer -->	 
+	<!--smooth-scrolling-of-move-up-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+	<!--//smooth-scrolling-of-move-up-->
+	<!-- menu-js -->
+	<script src="javascripts/classie.js"></script>
+	<script src="javascripts/main.js"></script>
+	<!-- //menu-js -->	 
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="javascripts/bootstrap.js"></script>
+<script>
+
+
+            var data = <%- JSON.stringify(json)%>;
+			var table = document.getElementById("ranking");
+			for (var i = 0; i<data.length;i++)
+			{
+			    var row =table.insertRow(table.rows.length);
+			    var c1 = row.insertCell(0);
+			    c1.innerHTML = data[i].user_name;
+			    var c2 = row.insertCell(1);
+			    c2.innerHTML = data[i].time;
+                var c3 = row.insertCell(2);
+                c3.innerHTML = data[i].credits;
+                var c4 = row.insertCell(3);
+                c4.innerHTML = data[i].amount;
+            }
+
+</script>
+</body>
+</html>
